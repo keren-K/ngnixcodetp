@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mon application Node.js</title>
+</head>
+<body>
+  <h1>Bienvenue sur mon application Node.js !</h1>
+  <p>Le serveur Node.js est lance sur l'hote : <span id="hostname"></span></p>
+
+  <script>
+    // Récupérer le nom d'hôte et l'afficher dans la page
+    fetch('/hostname')
+      .then(response => response.text())
+      .then(hostname => {
+        document.getElementById('hostname').textContent = hostname;
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération du nom d\'hôte :', error);
+      });
+  </script>
+</body>
+</html>
